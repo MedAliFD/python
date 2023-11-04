@@ -1,11 +1,11 @@
 class BankAccount:
-    accounts = 0
+    accounts = 0 #optional number of accounts
     accountsList=[]
 
     def __init__(self, int_rate, balance): 
         self.int_rate=int_rate
         self.balance= balance
-        BankAccount.accounts+= 1
+        BankAccount.accounts+= 1 # optional
         BankAccount.accountsList.append(self)
 
 
