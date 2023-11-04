@@ -75,9 +75,10 @@ dojo = {
 
 def printinfo():
     for key,val in dojo.items(): 
-        print ( f"{len(val)} {key}")
+        print ( f"{len(val)} {key} ")
         for i in range(0,len(val)):
             values = val[i]
             print(values)
+        print("")
         
-# printinfo()
+printinfo()
