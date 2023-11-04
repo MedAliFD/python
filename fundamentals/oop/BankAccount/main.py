@@ -1,10 +1,13 @@
 class BankAccount:
     accounts = 0
+    accountsList=[]
 
     def __init__(self, int_rate, balance): 
         self.int_rate=int_rate
         self.balance= balance
         BankAccount.accounts+= 1
+        BankAccount.accountsList.append(self)
+
 
 #methode to calculate number of accounts
     @classmethod
@@ -31,7 +34,10 @@ class BankAccount:
     
 
 #print all instancesinfo
-        # solution not found yet
+    @classmethod
+    def print_all_accounts(cls):
+        for account in cls.accountsList:
+            account.display_account_info()
 
 
 #Assignemnt tasks
@@ -41,4 +47,6 @@ account2=BankAccount(0.2,1000) # initialize the 1st account
 account1.deposit(1000).deposit(800).deposit(300).withdrawl(100).yield_interest().display_account_info()
 account2.deposit(300).deposit(700).withdrawl(100).withdrawl(100).withdrawl(100).withdrawl(100).yield_interest().display_account_info()
 BankAccount.accountsNumber()
+
+BankAccount.print_all_accounts()
 
