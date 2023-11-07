@@ -1,8 +1,12 @@
 class User:
     #constructor
+    number=0
+
     def __init__ (self,name):
         self.name = name
         self.account_balance= 0
+        User.number += 1
+        self.index=User.number
 
 #make deposit methode
     def make_deposit(self,amount):
@@ -14,7 +18,7 @@ class User:
         return(self)
 #display methode
     def display(self):
-        print(f" User.{self.name}, Balance: ${self.account_balance}")
+        print(f" User #{self.index} {self.name}, Balance: ${self.account_balance}")
 
 #transfert methode
     def transfer_money(self, recipient,amount):
