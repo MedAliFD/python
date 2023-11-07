@@ -48,8 +48,8 @@ class User:
             }
 #display methode
     def display_users(self):
-        print(f" User.{self.name}, Checking Balance : ${self.account["checking"].display_account_info()}")
-        print(f" User.{self.name}, Saving Balance: ${self.account["savings"].display_account_info()}")
+        print(f" User.{self.name}, Checking Balance : ${self.account['checking'].display_account_info()}")
+        print(f" User.{self.name}, Saving Balance: ${self.account['savings'].display_account_info()}")
 adrien=User("adrien")
 adrien.account['checking'].deposit(100)
 adrien.display_users()
