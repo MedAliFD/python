@@ -1,0 +1,36 @@
+select * from dojos;
+
+
+Query: Create 3 new dojos
+insert into dojos ( id ,name, created_at, updated_at) Values ( 1,"Ninjas",now(), now());
+insert into dojos ( id ,name, created_at, updated_at) Values ( 2,"Samurais",now(), now());
+insert into dojos ( id ,name, created_at, updated_at) Values ( 3,"kids",now(), now());
+
+Query: Delete the 3 dojos you just created
+DELETE FROM dojos WHERE id =1 or id=2 or id=3;
+
+Query: Create 3 more dojos
+insert into dojos ( id ,name, created_at, updated_at) Values ( 1,"Shadow_Fighters",now(), now());
+insert into dojos ( id ,name, created_at, updated_at) Values ( 2,"Assassins",now(), now());
+insert into dojos ( id ,name, created_at, updated_at) Values ( 3,"Chaos",now(), now());
+
+Query: Create 3 ninjas that belong to the first dojo
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 1,"The chaos", "Master",58,now(),now(),1);
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 2,"The chaos", "Master",58,now(),now(),1);
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 3,"The chaos", "Master",58,now(),now(),1);
+
+Query: Create 3 ninjas that belong to the second dojo
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 4,"The chaos", "Master",58,now(),now(),2);
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 5,"The chaos", "Master",58,now(),now(),2);
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 6,"The chaos", "Master",58,now(),now(),3);
+
+Query: Create 3 ninjas that belong to the third dojo
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 7,"The chaos", "Master",58,now(),now(),3);
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 8,"The chaos", "Master",58,now(),now(),3);
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 9,"The chaos", "Master",58,now(),now(),3);
+
+Query: Retrieve all the ninjas from the first dojo
+DELETE FROM dojos WHERE id =1;
+
+Query: Retrieve all the ninjas from the last dojo
+DELETE FROM dojos WHERE id =3;

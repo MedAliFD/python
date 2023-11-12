@@ -1,0 +1,43 @@
+-- SELECT Basics: http://sqlzoo.net/wiki/SQLZOO:SELECT_basics
+-- SELECT name: http://sqlzoo.net/wiki/SELECT_names
+-- SELECT from World: http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial
+-------------
+-- SELECT --
+use twitter;
+USE twitter; -- select the data base
+
+SELECT * from users; -- select all from the user
+SELECT first_name FROM users; -- select only the first_names in users
+-- conditions WHERE
+SELECT * FROM USERS WHERE id=1 ;
+SELECT * FROM users WHERE id <= 3;
+SELECT * FROM users WHERE first_name NOT LIKE "K%"; --  first names starting in "K"
+SELECT * FROM users WHERE first_name NOT LIKE "K%"; -- first names not starting in "K"?
+SELECT * FROM users WHERE first_name LIKE "%e"; -- first name that ends with "e" 
+SELECT * FROM users WHERE first_name LIKE "%e" ORDER BY birthday DESC; -- youngest users at the top
+SELECT name, area FROM world WHERE area BETWEEN 250000 AND 300000;
+
+-- SELECT w/ LIMIT and OFFSET
+SELECT * FROM users LIMIT 3; --  first 3 users
+SELECT * FROM users LIMIT 3 OFFSET 2; -- records 3-5
+SELECT * FROM users LIMIT 2,3;
+
+-- SELECT w/ LIMIT and OFFSET
+SELECT * FROM users LIMIT 3; --  first 3 users
+SELECT * FROM users LIMIT 3 OFFSET 2; -- records 3-5
+-- INSERT  --
+INSERT INTO table_name (column_name1, column_name2) VALUES('column1_value', 'column2_value');
+INSERT INTO tweets ( tweet, user_id,created_at, updated_at) values("helloooo", 1 ,NOW(), NOW());
+-- or directly after selecting all of the table you can add it manually in the table then apply 
+
+-- UPDATED --
+UPDATE table_name SET column_name1 = 'some_value', column_name2='another_value' WHERE condition(s)
+-- or directly after selecting all (*) of the table you can modify it manually in the table then apply 
+
+-- DELETE --
+
+DELETE FROM table_name WHERE condition(s)
+-- or directly after selecting all of the table you can DELETE ROWS (right click) in the table then apply 
+-- if you don't have permistion use this code  SET SQL_SAFE_UPDATES = 0;  -- so you can delete freely 
+
+
