@@ -8,6 +8,8 @@ USE twitter; -- select the data base
 
 SELECT * from users; -- select all from the user
 SELECT first_name FROM users; -- select only the first_names in users
+
+
 -- conditions WHERE
 SELECT * FROM USERS WHERE id=1 ;
 SELECT * FROM users WHERE id <= 3;
@@ -40,4 +42,5 @@ DELETE FROM table_name WHERE condition(s)
 -- or directly after selecting all of the table you can DELETE ROWS (right click) in the table then apply 
 -- if you don't have permistion use this code  SET SQL_SAFE_UPDATES = 0;  -- so you can delete freely 
 
+JOIN 
 

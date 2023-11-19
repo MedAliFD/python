@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h2>***Checkerboard 8 | 8***</h2>
+            <table>
+                {%for i in range (8)%}
+                <tr>
+                    {% for j in range(8) %}
+                    {% if (i+j) % 2 == 0 %}
+                    <td class="color1"></td>
+                    {% else %}
+                    <td class="color2"></td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {%endfor%}
+        </table>
+        
+    </main>
+</body>
+</html>

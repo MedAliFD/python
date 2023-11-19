@@ -15,9 +15,7 @@ insert into dojos ( id ,name, created_at, updated_at) Values ( 2,"Assassins",now
 insert into dojos ( id ,name, created_at, updated_at) Values ( 3,"Chaos",now(), now());
 
 Query: Create 3 ninjas that belong to the first dojo
-insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 1,"The chaos", "Master",58,now(),now(),1);
-insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 2,"The chaos", "Master",58,now(),now(),1);
-insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 3,"The chaos", "Master",58,now(),now(),1);
+insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 1,"The chaos", "Master",58,now(),now(),1),( 2,"The chaos", "Master",58,now(),now(),1), ( 3,"The chaos", "Master",58,now(),now(),1);
 
 Query: Create 3 ninjas that belong to the second dojo
 insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 4,"The chaos", "Master",58,now(),now(),2);
@@ -30,7 +28,7 @@ insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) v
 insert into ninjas (id,first_name,last_name,age,created_at,updated_at,dojo_id) values ( 9,"The chaos", "Master",58,now(),now(),3);
 
 Query: Retrieve all the ninjas from the first dojo
-DELETE FROM dojos WHERE id =1;
+SELECT * FROM dojos WHERE id =1;
 
 Query: Retrieve all the ninjas from the last dojo
-DELETE FROM dojos WHERE id =3;
+SELECT * FROM dojos WHERE id =3;
