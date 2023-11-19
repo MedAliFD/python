@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>submited info</h2>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>{{ form_data.get('name', '') }}</td>
+        </tr>
+        <tr>
+            <td>Dojo location :</td>
+            <td>{{ form_data.get('country', '') }}</td>
+        </tr>
+        <tr>
+            <td>Comment:</td>
+            <td>{{ form_data.get('comment', '') }}</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

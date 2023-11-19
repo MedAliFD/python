@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>DOJO Servey</h2>
+    <form action="/" method="POST">
+<!-- name -->
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+<!-- location -->
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <option value="Chicago">Chicago</option>
+            <option value="SanJose">San Jose</option>
+            <option value="Tunisia">Tunisia</option>
+        </select>
+<!-- comments -->
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" ></textarea>
+<!-- submit -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
