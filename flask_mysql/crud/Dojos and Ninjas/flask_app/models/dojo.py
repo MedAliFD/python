@@ -14,8 +14,7 @@ class Dojo:
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM dojos;"
-
-        results = connectToMySQL('dojo_and_ninjas_schema').query_db(query)
+        results = connectToMySQL('dojos_and_ninjas').query_db(query)
         dojos = []
 
         for d in results:
@@ -25,13 +24,13 @@ class Dojo:
     @classmethod
     def save(cls, data):
         query = "INSERT INTO dojos (name) VALUES (%(name)s);"
-        result = connectToMySQL('dojo_and_ninjas_schema').query_db(query, data)
+        result = connectToMySQL('dojos_and_ninjas').query_db(query, data)
         return result
 
     @classmethod
     def get_one_with_ninjas(cls, data):
-        query = "SELECT * FROM dojos LEFT JOIN ninjas on dojos.id = ninjas.dojo_id WHERE dojos.id = %(id)s;"
-        results = connectToMySQL('dojo_and_ninjas_schema').query_db(query, data)
+        query = "= SELECT * FROM dojos LEFT JOIN ninjas on dojos.id = ninjas.dojo_id WHERE dojos.id %(id)s;"
+        results = connectToMySQL('dojos_and_ninjas').query_db(query, data)
         print(results)
         dojo = cls(results[0])
         for row in results:
