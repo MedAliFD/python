@@ -1,29 +1,57 @@
-from mysqlconnection import connectToMySQL
+from flask import render_template, request, redirect
 
-class User:
-    def __init__(self,data):
-        self.id = data["id"]
-        self.first_name = data["first_name"]
-        self.last_name = data["last_name"]
-        self.email = data["email"]
-        self.created_at = data["created_at"]
-        self.updated_at = data["updated_at"]
+from flask_app import app
+from flask_app.models.user import User
 
-# Method that will get all rows of the table
-    @classmethod
-    def get_all(cls):
-        query = "SELECT * FROM users;"
-        results = connectToMySQL('users_schema').query_db(query)
-        users = []
-        for row in results:
-            user = cls(row)
-            users.append(user)
-        return users
-    
-    @classmethod
-    def save(cls, data):
-        query = "INSERT INTO users (first_name,last_name,email) VALUES (%(first_name)s,%(last_name)s,%(email)s);"
 
-        # comes back as the new row id
-        result = connectToMySQL('users_schema').query_db(query, data)
-        return result
+@app.route('/')
+def index():
+    return redirect('/users')
+
+
+@app.route('/users')
+def users():
+    return render_template("users.html", users=User.get_all())
+
+
+@app.route('/user/new')
+def new():
+    return render_template("new_user.html")
+
+
+@app.route('/user/create', methods=['POST'])
+def create():
+    print(request.form)
+    User.save(request.form)
+    return redirect('/users')
+
+
+@app.route('/user/edit/<int:id>')
+def edit(id):
+    data = {
+        "id": id
+    }
+    return render_template("edit_user.html", user=User.get_one(data))
+
+
+@app.route('/user/show/<int:id>')
+def show(id):
+    data = {
+        "id": id
+    }
+    return render_template("show_user.html", user=User.get_one(data))
+
+
+@app.route('/user/update', methods=['POST'])
+def update():
+    User.update(request.form)
+    return redirect('/users')
+
+
+@app.route('/user/destroy/<int:id>')
+def destroy(id):
+    data = {
+        'id': id
+    }
+    User.destroy(data)
+    return redirect('/users')
