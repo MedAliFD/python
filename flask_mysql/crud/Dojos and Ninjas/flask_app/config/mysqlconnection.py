@@ -1,6 +1,6 @@
 import pymysql.cursors
 
-DB ="users_schema" # our data base name
+
 
 class MySQLConnection:
     def __init__(self, db):
