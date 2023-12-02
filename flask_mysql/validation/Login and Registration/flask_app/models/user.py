@@ -38,10 +38,10 @@ class User():
             flash("You are using the wrong format of an email")
         if not user_in_db:
             is_valid = False
-            flash("email doesn't exist")
+            flash("email doesn't exist", "login")
         elif not bcrypt.check_password_hash(user_in_db.password, data['password']):
             is_valid = False
-            flash("Incorrect Password")
+            flash("Incorrect Password", "login")
         return is_valid
 
     @staticmethod
@@ -49,23 +49,24 @@ class User():
         is_valid = True
         user_in_db = User.get_by_email(data)
         if len(data['first_name']) <= 2:
-            flash("first name doesn't respect rules")
+            flash("first name doesn't respect rules", "register")
             is_valid = False
         if len(data['last_name']) <= 2:
-            flash("last name doesn't respect rules")
+            flash("last name doesn't respect rules", "register")
             is_valid = False
         if len(data['password']) < 8:
-            flash("Password must be longer than 8 characters.")
+            flash("Password must be longer than 8 characters.", "register")
             is_valid = False
         if data['password'] != data['confirm_password']:
-            flash("please confirm your password correctly")
+            flash("please confirm your password correctly", "register")
             is_valid = False
         if user_in_db:
-            flash("this email already used.")
+            flash("this email already used.", "register")
             is_valid = False
         if not User.EMAIL_REGEX.match(data['email']):
             flash("Email rules not respected")
             is_valid = False
+            
         return is_valid
 
     @classmethod

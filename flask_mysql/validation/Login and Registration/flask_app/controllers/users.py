@@ -15,14 +15,11 @@ def login_registration():
 @app.route('/register', methods=['POST'])
 def register():
     data = request.form
-    # Check if this data respects certain rules
-    # if user's data respect the rules it will be saved 
+
     if User.validate_register(data):
-        # Save the user in the database
         User.create(data)
         pass
-    # If it does respect those rules => Save the user in database
-    # If it doesn't respect those rules => Display Error Messages
+
     return redirect('/')
 
 
